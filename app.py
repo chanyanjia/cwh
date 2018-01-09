@@ -32,7 +32,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     order = parameters.get("order_number")
 
-    status = {'#FED12345':'Pending confirmation', '#FED1234':'In transit', '#FED12334':'Awaiting pick-up', '#FED54321':'Awaiting pick-up'}
+    status = {'#FED12345':'Pending Confirmation', '#FED1234':'In Transit', '#FED12334':'Awaiting Pick-up', '#FED54321':'Awaiting Pick-up'}
 
     speech = "The order status of " + order + " is " + str(status[order])
     print("Response:")
