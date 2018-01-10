@@ -57,10 +57,6 @@ def makeWebhookResult(req):
             {
                 "type": "text",
                 "body": "Here's the picture of item " + item
-            },
-            {
-                "type": "picture",
-                "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
             }
         ]
 
