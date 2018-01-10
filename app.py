@@ -57,6 +57,10 @@ def makeWebhookResult(req):
             {
                 "type": "text",
                 "body": "Here's the picture of item " + item
+            },
+            {
+                "type": "picture",
+                "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
             }
         ]
 
@@ -65,7 +69,7 @@ def makeWebhookResult(req):
         return {
             "speech": speech,
             "displayText": speech,
-            "data": {"kik": {&lt;kik_message&gt;}},
+            "data": {"kik": kik_message},
             # "contextOut": [],
             "source": "apiai-kik-images"
         }
