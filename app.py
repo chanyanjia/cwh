@@ -25,7 +25,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def makeWebhookResults(req):
+def makeWebhookResult(req):
     if req.get("result").get("action") != "part_number":
         return {}
     result = req.get("result")
