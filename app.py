@@ -60,7 +60,7 @@ def makeWebhookResult(req):
             },
             {
                 "type": "picture",
-                "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
+                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
         ]
 
