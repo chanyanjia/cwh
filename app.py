@@ -53,7 +53,7 @@ def makeWebhookResults(req):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"kik": kik_message},
+        "data": {"kik": {&lt;kik_message&gt;}},
         # "contextOut": [],
         "source": "apiai-kik-images"
     }
