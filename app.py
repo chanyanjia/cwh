@@ -26,58 +26,56 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "part_number":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    item = parameters.get("items")
+    if req.get("result").get("action") == "orderstatus":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        order = parameters.get("order_number")
 
-    speech = "Showing item " + item
+        status = {'#FED12345':'Pending Confirmation', '#FED1234':'In Transit', '#FED12334':'Awaiting Pick-up', '#FED54321':'Awaiting pick-up'}
 
-    print("Response:")
-    print(speech)
-
-    kik_message = [
-        {
-            "type": "text",
-            "body": "Here's the picture of item " + item
-        },
-        {
-            "type": "picture",
-            "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
+        speech = "The order status of " + order + " is " + status[order]
+        print("Response:")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            #"contextOut": [],
+            "source": "BankRates"
         }
-    ]
+    elif req.get("result").get("action") == "part_number":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        item = parameters.get("items")
 
-    print(json.dumps(kik_message))
+        speech = "Showing item " + item
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        "data": {"kik": {&lt;kik_message&gt;}},
-        # "contextOut": [],
-        "source": "apiai-kik-images"
-    }
+        print("Response:")
+        print(speech)
 
+        kik_message = [
+            {
+                "type": "text",
+                "body": "Here's the picture of item " + item
+            },
+            {
+                "type": "picture",
+                "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
+            }
+        ]
 
-def makeWebhookResult(req):
-    if req.get("result").get("action") != "orderstatus":
+        print(json.dumps(kik_message))
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"kik": {&lt;kik_message&gt;}},
+            # "contextOut": [],
+            "source": "apiai-kik-images"
+        }
+    else
         return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    order = parameters.get("order_number")
 
-    status = {'#FED12345':'Pending Confirmation', '#FED1234':'In Transit', '#FED12334':'Awaiting Pick-up', '#FED54321':'Awaiting Pick-up'}
-
-    speech = "The order status of " + order + " is " + str(status[order])
-    print("Response:")
-    print(speech)
-    return {
-        "speech": speech,
-        "displayText": speech,
-        #"data": {},
-        #"contextOut": [],
-        "source": "BankRates"
-    }
 
 if __name__ == '__main__':
     # port = int(os.getenv('PORT', 5000))
