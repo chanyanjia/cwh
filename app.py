@@ -26,6 +26,40 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
+    if req.get("result").get("action") != "part_number":
+        return {}
+    result = req.get("result")
+    parameters = result.get("parameters")
+    item = parameters.get("items")
+
+    speech = "Showing item " + item
+
+    print("Response:")
+    print(speech)
+
+    kik_message = [
+        {
+            "type": "text",
+            "body": "Here's the picture of item " + item
+        },
+        {
+            "type": "picture",
+            "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
+        }
+    ]
+
+    print(json.dumps(kik_message))
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "data": {"kik": kik_message},
+        # "contextOut": [],
+        "source": "apiai-kik-images"
+    }
+
+
+def makeWebhookResult(req):
     if req.get("result").get("action") != "orderstatus":
         return {}
     result = req.get("result")
