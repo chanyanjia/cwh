@@ -74,12 +74,12 @@ def makeWebhookResult(req):
             "source": "apiai-kik-images"}
     speech = "there's an error here"
     print(speech)
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            #"contextOut": [],
-            "source": "BankRates"
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        #"contextOut": [],
+        "source": "BankRates"
         } 
 
 
