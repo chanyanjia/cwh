@@ -25,17 +25,53 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "orderstatus":
-        return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    order = parameters.get("order_number")
+    storing = req.get("result").get("action")
+    if storing == "orderstatus":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        order = parameters.get("order_number")
 
-    status = {'#FED12345':'https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG', '#FED1234':'In transit', '#FED12334':'Awaiting pick-up', '#FED54321':'Awaiting pick-up'}
+        status = {'#FED12345':'Pending Confirmation', '#FED1234':'In Transit', '#FED12334':'Awaiting Pick-up', '#FED54321':'Awaiting pick-up'}
 
-    speech = "The order status of " + order + " is " + str(status[order])
-    print("Response:")
+        speech = "The order status of " + order + " is " + status[order]
+        print("Response:")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            #"contextOut": [],
+            "source": "BankRates"
+        }
+    elif storing == "img":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        item = parameters.get("itemsreq")
+
+        speech = "Showing item " + item
+
+        print("Response:")
+        print(speech)
+        
+        kik_message = [
+            {
+                "type": "picture",
+                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+            }
+        ]
+
+        print(json.dumps(kik_message))
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"kik": kik_message},
+            # "contextOut": [],
+            "source": "apiai-kik-images"}
+    
+    speech = "there's an error here"
     print(speech)
     return {
         "speech": speech,
@@ -43,10 +79,9 @@ def makeWebhookResult(req):
         #"data": {},
         #"contextOut": [],
         "source": "BankRates"
-    }
+        } 
 
-    
-    
+
     
 
 
