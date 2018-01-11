@@ -43,10 +43,10 @@ def makeWebhookResult(req):
             #"contextOut": [],
             "source": "BankRates"
         }
-    elif req.get("result").get("action") == "part_number":
+    elif req.get("result").get("action") == "img":
         result = req.get("result")
         parameters = result.get("parameters")
-        item = parameters.get("items")
+        item = parameters.get("itemsreq")
 
         speech = "Showing item " + item
 
@@ -60,7 +60,7 @@ def makeWebhookResult(req):
             },
             {
                 "type": "picture",
-                "picUrl": "https://github.com/chanyanjia/cwh/blob/master/pictures/Pump.PNG"
+                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
         ]
 
@@ -73,7 +73,7 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-kik-images"
         }
-    return {}
+    else return {}
 
 
 if __name__ == '__main__':
