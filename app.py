@@ -57,10 +57,7 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                "text": "my reply text",
-                "reply_markup":{
-                 "remove_keyboard": true
-                }
+                "text": "my reply text"
             }
         ]
        
