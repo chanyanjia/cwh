@@ -57,8 +57,10 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                "text": "This text *was* sent in the `data` field.",
-                "parse_mode": "Markdown"
+                “text”: “My reply text”,
+                “reply_markup”: {
+                    “remove_keyboard”: true
+                }
             }
         ]
        
