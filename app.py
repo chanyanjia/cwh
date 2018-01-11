@@ -61,13 +61,14 @@ def makeWebhookResult(req):
                 "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
             }
         ]
+        python_message = [bot.send_photo(chat_id=chat_id, photo="https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG")]
 
         print(json.dumps(kik_message))
 
         return {
             "speech": speech,
             "displayText": speech,
-            "data": {"kik": kik_message, "telegram": kik_message},
+            "data": {"kik": kik_message, "telegram": python_message},
             # "contextOut": [],
             "source": "apiai-kik-images"}
     
