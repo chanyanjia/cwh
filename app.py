@@ -72,7 +72,15 @@ def makeWebhookResult(req):
             "data": {"kik": kik_message},
             # "contextOut": [],
             "source": "apiai-kik-images"}
-    return {}
+    speech = "there's an error here"
+    print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            #"contextOut": [],
+            "source": "BankRates"
+        } 
 
 
 if __name__ == '__main__':
