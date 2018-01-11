@@ -57,10 +57,6 @@ def makeWebhookResult(req):
             {
                 "type": "text",
                 "body": "Here's the picture of item " + item
-            },
-            {
-                "type": "picture",
-                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
         ]
 
