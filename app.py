@@ -58,7 +58,7 @@ def makeWebhookResult(req):
         kik_message = [
             {
                 "type": "picture",
-                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
             }
         ]
 
