@@ -63,8 +63,8 @@ def makeWebhookResult(req):
         ]
         tele_message = [
             {
-                "type":"photo",
-                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
+                "text":"hello",
+                "parse_mode": "Markdown"
             }
         ]
 
