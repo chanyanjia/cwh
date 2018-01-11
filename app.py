@@ -73,7 +73,8 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-kik-images"
         }
-    else return {}
+    else
+        return {}
 
 
 if __name__ == '__main__':
