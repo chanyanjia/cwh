@@ -26,7 +26,8 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") == "orderstatus":
+    storing = req.get("result").get("action")
+    if storing == "orderstatus":
         result = req.get("result")
         parameters = result.get("parameters")
         order = parameters.get("order_number")
@@ -43,7 +44,7 @@ def makeWebhookResult(req):
             #"contextOut": [],
             "source": "BankRates"
         }
-    elif req.get("result").get("action") == "img":
+    elif storing == "img":
         result = req.get("result")
         parameters = result.get("parameters")
         item = parameters.get("itemsreq")
