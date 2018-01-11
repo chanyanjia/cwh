@@ -27,58 +27,34 @@ def webhook():
 
 def makeWebhookResult(req):
     storing = req.get("result").get("action")
-    if storing == "orderstatus":
-        result = req.get("result")
-        parameters = result.get("parameters")
-        order = parameters.get("order_number")
+    if storing != "img":
+        return {}
+    result = req.get("result")
+    parameters = result.get("parameters")
+    item = parameters.get("itemsreq")
 
-        status = {'#FED12345':'Pending Confirmation', '#FED1234':'In Transit', '#FED12334':'Awaiting Pick-up', '#FED54321':'Awaiting pick-up'}
+    speech = "Showing item " + item
 
-        speech = "The order status of " + order + " is " + status[order]
-        print("Response:")
-        print(speech)
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            #"contextOut": [],
-            "source": "BankRates"
-        }
-    elif storing == "img":
-        result = req.get("result")
-        parameters = result.get("parameters")
-        item = parameters.get("itemsreq")
-
-        speech = "Showing item " + item
-
-        print("Response:")
-        print(speech)
-        
-        kik_message = [
-            {
-                "type": "picture",
-                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
-            }
-        ]
-
-        print(json.dumps(kik_message))
-
-        return {
-            "speech": speech,
-            "displayText": speech,
-            "data": {"kik": kik_message},
-            # "contextOut": [],
-            "source": "apiai-kik-images"}
-    
-    speech = "there's an error here"
+    print("Response:")
     print(speech)
+        
+    kik_message = [
+        {
+            "type": "picture",
+            "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+        }
+      ]
+
+    print(json.dumps(kik_message))
+
     return {
         "speech": speech,
         "displayText": speech,
-        #"data": {},
-        #"contextOut": [],
-        "source": "BankRates"
-        } 
+        "data": {"kik": kik_message},
+        # "contextOut": [],
+        "source": "apiai-kik-images"}
+    
+    
 
 
 if __name__ == '__main__':
