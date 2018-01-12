@@ -61,7 +61,9 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                "text": "my reply text"
+                "type": 3,
+                "platform": "telegram",
+                "imageUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
         ]
        
