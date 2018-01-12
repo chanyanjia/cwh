@@ -1,14 +1,11 @@
 import urllib
 import json
 import os
-import telebot
 
 from flask import Flask
 from flask import request
 from flask import make_response
 
-
-bot = telebot.TeleBot("532987050:AAEkQ6FqXHWGI29JTFY0Bojwgy91Xw4hnxU")
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -61,14 +58,13 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                "type": 3,
-                "platform": "telegram",
-                "imageUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+                'chatid' = 215104437, 
+                'photo' = "https://s3.amazonaws.com/warehousehappybotprototype/SKU.JPG"
+                
             }
         ]
        
         print(json.dumps(kik_message))
-        bot.send_message(chatid, "hello")
 
         return {
             "speech": speech,
