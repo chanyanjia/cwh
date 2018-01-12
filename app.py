@@ -58,21 +58,22 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                "chatid": @Happyyyy_bot, 
-                "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKU.JPG"
-                
+                "type": "picture",
+                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
             }
         ]
-       
+
         print(json.dumps(kik_message))
+       
 
         return {
             "speech": speech,
             "displayText": speech,
-            "data": {"telegram": kik_message},
+            "data": {"kik": kik_message},
             # "contextOut": [],
             "source": "apiai-kik-images"}
-    
+        
+       
     speech = "a"
     print(speech)
     return {
