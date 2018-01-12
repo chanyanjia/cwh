@@ -66,7 +66,7 @@ def makeWebhookResult(req):
         ]
        
         print(json.dumps(kik_message))
-        tb.send_message(chatid, "hello)
+        bot.send_message(chatid, "hello")
 
         return {
             "speech": speech,
