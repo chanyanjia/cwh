@@ -1,10 +1,14 @@
 import urllib
 import json
 import os
+import telebot
 
 from flask import Flask
 from flask import request
 from flask import make_response
+
+
+bot = telebot.TeleBot("532987050:AAEkQ6FqXHWGI29JTFY0Bojwgy91Xw4hnxU")
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -62,6 +66,7 @@ def makeWebhookResult(req):
         ]
        
         print(json.dumps(kik_message))
+        tb.send_message(chatid, "hello)
 
         return {
             "speech": speech,
