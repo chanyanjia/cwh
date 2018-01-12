@@ -58,8 +58,8 @@ def makeWebhookResult(req):
         
         kik_message = [
             {
-                'chatid' = 215104437, 
-                'photo' = "https://s3.amazonaws.com/warehousehappybotprototype/SKU.JPG"
+                "chatid": @Happyyyy_bot, 
+                "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKU.JPG"
                 
             }
         ]
