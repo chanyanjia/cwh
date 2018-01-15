@@ -76,20 +76,20 @@ def makeWebhookResult(req):
         print("Response:")
         print(speech)
         
-        kik_message = [
+        telegram_message = [
             {
-                "type": "picture",
-                "picUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKU" + item + ".JPG"
+                "text": "This is returned from data parameter",
+                "parse_mode": "Markdown"
             }
         ]
 
-        print(json.dumps(kik_message))
+        print(json.dumps(telegram_message))
        
 
         return {
             "speech": speech,
             "displayText": speech,
-            "data": {"kik": kik_message},
+            "data": {"kik": telegram_message},
             # "contextOut": [],
             "source": "apiai-kik-images"}
         
