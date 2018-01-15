@@ -78,8 +78,7 @@ def makeWebhookResult(req):
         
         telegram_message = [
             {
-                "text": "This is returned from data parameter",
-                "parse_mode": "Markdown"
+                "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
         ]
 
