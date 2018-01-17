@@ -78,7 +78,9 @@ def makeWebhookResult(req):
         
         telegram_message = [
             {
-                "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+                "imageUrl": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG",
+                "platform": "telegram",
+                "type": 3
             }
         ]
 
