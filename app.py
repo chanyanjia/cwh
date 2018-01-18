@@ -65,7 +65,24 @@ def makeWebhookResult(req):
             "source": "BankRates"
         }
         
-        
+    elif storing == "PO_status":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        req = parameters.get("POnumber")
+
+        status = {'PO00100234':'Rejected', 'PO0040500':'Open'}
+
+        speech = "The status of " + req + " is " + status[req]
+        print("Response:")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            #"contextOut": [],
+            "source": "BankRates"
+        }    
+    
     elif storing == "img":
         result = req.get("result")
         parameters = result.get("parameters")
