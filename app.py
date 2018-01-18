@@ -70,7 +70,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         req = parameters.get("POnumber")
 
-        status = {'PO00100234':'Rejected', 'PO0040500':'Open'}
+        status = {'PO00100234':'Rejected', 'PO0040500':'Open', 'PO00405000':'Cancelled'}
 
         speech = "The status of " + req + " is " + status[req]
         print("Response:")
