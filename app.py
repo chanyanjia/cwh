@@ -52,7 +52,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         req = parameters.get("purreq")
 
-        status = {'PR46315555':'Pending Approval. Requested date: 10/1/2018.', 'PR46312222':'Approved. PO issued: 8/1/18.'}
+        status = {'PR46315555':'Pending Approval. Requested date: 10/1/2018.', 'PR46312222':'Approved. PO issued: 8/1/18. PO Number: PO0040500. PO status: Open'}
 
         speech = "The status of " + req + " is " + status[req]
         print("Response:")
