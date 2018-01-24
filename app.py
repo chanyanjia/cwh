@@ -58,7 +58,10 @@ def makeWebhookResult(req):
         for i in range(0,len(Orderstatus)):
             if item in Orderstatus[i][1]:
                 check += ' ' + Orderstatus[i][0]
-        speech = "Orders have been made for this item. Please refer to " + check
+        if check = '':
+            speech = " There are no pending orders for this item. "
+        else:
+            speech = "Orders have been made for this item. Please refer to " + check
 
         print("Response:")
         print(speech)
