@@ -53,11 +53,11 @@ def makeWebhookResult(req):
 
         Orderstatus = ['PO00100234', ['#11233', '#11244']],['PO0040500', ['#11233']]
 
-        check = ""
+        check = ''
 
         for i in range(0,len(Orderstatus)):
             if item in Orderstatus[i][1]:
-                check += " " + Orderstatus[i][0]
+                check = check + ' ' + Orderstatus[i][0]
         speech = "Orders have been made for this item. Please refer to " + check
 
         print("Response:")
