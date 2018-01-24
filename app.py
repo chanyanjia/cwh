@@ -46,7 +46,30 @@ def makeWebhookResult(req):
             #"contextOut": [],
             "source": "BankRates"
         }
-    
+    elif storing == "ordercheck":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        item = parameters.get("itemschk")
+
+        Orderstatus = [['PO00100234', ['#11233', '#11244']],['PO0040500', ['#11233']]]
+
+        check = ""
+
+        for i in range(0,len(Orderstatus)):
+            if item in Orderstatus[i][1]:
+                check += Orderstatus[i][0]
+        speech = "Orders have been made for this item. Please refer to " + check
+
+        print("Response:")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            #"contextOut": [],
+            #"source": ""
+        }    
+
     elif storing == "purchasereq":
         result = req.get("result")
         parameters = result.get("parameters")
