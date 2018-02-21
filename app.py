@@ -122,7 +122,7 @@ def makeWebhookResult(req):
             {
                 "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
             }
-    
+        ]
 
         print(json.dumps(tele_message))
 
