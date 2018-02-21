@@ -118,7 +118,11 @@ def makeWebhookResult(req):
 
         print("Response:")
         print(speech)
-        
+        tele_message=[
+            {
+                "photo": "https://s3.amazonaws.com/warehousehappybotprototype/SKUPump.JPG"
+            }
+    
         kik_message = [
             {
                 "type": "picture",
@@ -131,7 +135,7 @@ def makeWebhookResult(req):
         return {
             "speech": speech,
             "displayText": speech,
-            "data": {"kik": kik_message},
+            "data": {"kik": kik_message, "telegram": tele_message},
             # "contextOut": [],
             "source": "apiai-kik-images"}
         
